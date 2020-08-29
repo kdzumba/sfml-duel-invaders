@@ -1,5 +1,5 @@
-#ifndef CONSTANTS_H
-#define CONSTANTS_H
+#ifndef CONFIG_H
+#define CONFIG_H
 
 const float PLAYER_SPRITE_WIDTH = 30;
 const float PLAYER_SPRITE_HEIGHT = 21;
@@ -11,4 +11,4 @@ const int GAME_HEIGHT = 600;
 const float PLAYER_SPEED = 4.0f;
 const float BULLET_SPEED = 1.0f;
 
-#endif
+#endif //CONFIG_H

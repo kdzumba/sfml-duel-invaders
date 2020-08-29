@@ -1,13 +1,13 @@
 #ifndef BULLET_H
 #define BULLET_H
 
-#include "GameObjects.h"
+#include "gameObject.h"
 //#include "Player.h" cicrular dependencies i.e 'bullet depends on player'
 #include "Position.h"
 
 #include <SFML/Graphics.hpp>
 
-class Bullet : public GameObjects
+class Bullet : public GameObject
 {
 public:
     Bullet(float x_position = 0.f, float y_position = 0.f);

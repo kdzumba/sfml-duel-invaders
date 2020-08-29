@@ -21,3 +21,9 @@ Release
 *.vbproj.user
 ipch
 *sdf 
+
+# visual studio files
+.vscode/
+
+#build files
+build/bin

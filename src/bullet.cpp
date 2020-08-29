@@ -1,5 +1,5 @@
 #include "bullet.h"
-#include "Constants.h" //including where you'll use it
+#include "config.h"
 
 #include <iostream>
 

@@ -1,5 +1,5 @@
 #include "GameScreen.h"
-#include "constants.h"
+#include "config.h"
 
 GameScreen::GameScreen()
 {
@@ -18,4 +18,8 @@ void GameScreen::display(sf::RenderWindow &window)
         {
         }
     }
+}
+
+void GameScreen::handleEvents(sf::RenderWindow &window)
+{
 }
