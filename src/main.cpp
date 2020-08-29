@@ -1,19 +1,9 @@
-#include <SFML/Graphics.hpp>
+#include "game.h"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(500, 500, 32), "Duel Invaders");
+    auto game = Game();
+    game.start();
 
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-            {
-                window.close();
-            }
-        }
-    }
-    return 0;
+    return EXIT_SUCCESS;
 }

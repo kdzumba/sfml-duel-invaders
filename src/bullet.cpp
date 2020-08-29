@@ -8,7 +8,7 @@ Bullet::Bullet(float x_position, float y_position) : bounding_region{0.5, x_posi
     x_pos = x_position;
     y_pos = y_position;
 
-    bullet_texture.loadFromFile("resources/laser.png");
+    bullet_texture.loadFromFile("../../resources/images/laser.png");
     bullet_sprite.setTexture(bullet_texture);
     bullet_sprite.setPosition(x_pos, y_pos);
 }
@@ -25,10 +25,10 @@ void Bullet::deactivate()
 
 void Bullet::move()
 {
-    if (y_pos < GAME_HEIGHT && fired == true)
+    if (y_pos < GAMEHEIGHT && fired == true)
     {
-        y_pos += BULLET_SPEED;
-        bounding_region.move(x_pos + BULLET_SPRITE_WIDTH / 2, y_pos + BULLET_SPRITE_HEIGHT / 2);
+        y_pos += BULLETSPEED;
+        bounding_region.move(x_pos + BULLETWIDTH / 2, y_pos + BULLETHEIGHT / 2);
         bullet_sprite.setPosition(x_pos, y_pos);
     }
     else

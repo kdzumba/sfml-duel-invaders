@@ -2,7 +2,6 @@
 #define GAMEOBJECT_H
 
 #include "Circle.h"
-#include "Position.h"
 
 class GameObject
 {

@@ -2,8 +2,6 @@
 #define BULLET_H
 
 #include "gameObject.h"
-//#include "Player.h" cicrular dependencies i.e 'bullet depends on player'
-#include "Position.h"
 
 #include <SFML/Graphics.hpp>
 

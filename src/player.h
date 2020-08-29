@@ -3,7 +3,6 @@
 
 #include "gameObject.h" // no need to include 'Circle.h'
 #include "Bullet.h"
-#include "Position.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -21,11 +20,10 @@ public:
     const sf::Sprite &playerSprite();
 
 private:
-    float x_position;
-    float y_position;
-    Circle bounding_region; //composition
-    Bullet bullet;          //composition
-    sf::Texture player_texture;
-    sf::Sprite player_sprite;
+    float xPosition;
+    float yPosition;
+    Circle boundingRegion; //composition
+    sf::Texture texture;
+    sf::Sprite sprite;
 };
 #endif
