@@ -25,7 +25,5 @@ private:
 
     sf::Texture bullet_texture;
     sf::Sprite bullet_sprite;
-    sf::Texture alien_texture;
-    sf::Texture alien_sprite;
 };
 #endif
