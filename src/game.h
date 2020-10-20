@@ -1,10 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "screen.h"
-#include <SFML/Graphics.hpp>
+#include "Screen.h"
 #include <memory>
 #include <vector>
+
+#include <SFML/Graphics.hpp>
 
 class Game
 {

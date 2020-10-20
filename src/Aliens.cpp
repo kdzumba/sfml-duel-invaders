@@ -1,8 +1,6 @@
 #include "Aliens.h"
 #include "Constants.h"
 
-#include <iostream>
-
 Aliens::Aliens(float x_position, float y_position):bounding_region{ALIEN_SPRITE_WIDTH/2, x_pos + ALIEN_SPRITE_WIDTH/2 , y_pos + ALIEN_SPRITE_HEIGHT/2}, alien_position{x_position, y_position}
 {   
     x_pos = x_position;

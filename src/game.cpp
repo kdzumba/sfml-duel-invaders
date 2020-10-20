@@ -1,13 +1,13 @@
-#include "game.h"
+#include "Game.h"
 #include "mainGameScreen.h"
-#include "config.h"
+#include "constants.h"
 
 int currentState = 0;
 
-Game::Game() : gameWindow{sf::VideoMode(GAMEWIDTH, GAMEHEIGHT, 32), "Duel Invaders"}
-{
+Game::Game() : gameWindow{sf::VideoMode(GAME_WIDTH, GAME_HEIGHT, 32), "Duel Invaders"}
+{   
     //TODO: use unique pointer for game screens??
-    screens.emplace_back(std::make_shared<MainGameScreen>());
+    screens.push_back(std::make_shared<MainGameScreen>()); //can also use emplace_back
 }
 
 void Game::start()
