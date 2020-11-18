@@ -1,19 +1,24 @@
 #include "Collision.h"
 
-Collision::Collision(float x_position, float y_position):bounding_region{GAME_HEIGHT/2, x_position, y_position}, bullet_position{x_position, y_position}, alien_position{x_position, y_position}
+Collision::Collision(float x_position, float y_position):bounding_region{, x_position, y_position}, bullet_position{5.0, x_position, y_position}, alien_position{12.5, x_position, y_position} //initialisation
 {   
     x_pos = x_position;
     y_pos = y_position;
     
 }
 
-void Collision::object_collision()
-{
-    if(bounding_region.intersects(bullet_position) == bounding_region.intersects(alien_position)) //variables for intersects
-    {
-        game.end(); //variable
+//can you have two constructors???
+
+void Collision::check_collision()
+{   
+    while(bounding_region.move(alien.move_x_by(), alien.move_y_by()) && bounding_region.move(bullet.move(),bullet.move())
+    {    
+        if(bounding_region.intersects(alien.getBoundingRegion()) == bounding_region.intersects(bullet.getBoundingRegion())) //variables for intersects
+        {
+            //end game;
+        }
+            else{
+                    //continue game;
+                }
     }
-        else{
-                continue;
-            }
 }

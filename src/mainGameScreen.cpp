@@ -1,5 +1,8 @@
 #include "MainGameScreen.h"
 #include "constants.h"
+#include <algorithm>
+
+#include <iostream>
 
 //???? Put auto infront of variables???
 
@@ -9,10 +12,19 @@ MainGameScreen::MainGameScreen()
     //player1 = std::make_unique<Player>(GAME_WIDTH/2, GAME_HEIGHT - PLAYER_SPRITE_HEIGHT);
     bullet = std::make_unique<Bullet>(413, BULLET_SPRITE_HEIGHT);
     
-    for(auto i = 0; i < 4; i++)
+    int row = 0;
+    int col = 0;
+    
+    for(auto i = 0; i < 100; i++)
     {
-        auto alien = std::make_shared<Aliens>((i * ALIEN_SPRITE_WIDTH) + i*ALIEN_SPRITE_SPACING, GAME_HEIGHT / 2); // x and y positions on screen
+        if(col * ALIEN_SPRITE_WIDTH >= GAME_WIDTH ){
+            row ++;
+            col = 0;
+        }
+        std::cout << col << std::endl;
+        auto alien = std::make_shared<Aliens>((col * ALIEN_SPRITE_WIDTH) + col*ALIEN_SPRITE_SPACING, row * ALIEN_SPRITE_HEIGHT + GAME_HEIGHT / 2); // x and y positions on screen
         aliens.push_back(alien);
+        col ++;
     }
 }
 
@@ -91,13 +103,22 @@ void MainGameScreen::update()
     
     if(clock1.getElapsedTime() >= alienReferenceTimer)
     {    
-        for(auto & alien : aliens)
-        {
-            alien -> move();
+        for(auto& alien : aliens){
+           alien -> move();
+            if(alien -> getBoundingRegion().intersects(bullet -> getBoundingRegion())){
+                std::cout << "Collission " << std::endl;
+                alien -> isDead();
+            }
         }
-                
         clock1.restart();
     }
+    
+    aliens.erase(std::remove_if(aliens.begin(), aliens.end(), [](std::shared_ptr<Aliens> alien){
+        return !alien->isAlive();
+    }), aliens.end());
+    
+    //erase_remove idiom in c++
+    //lambda functions, (function objects), function pointers
 }
 
 void MainGameScreen::render(sf::RenderWindow &window)
@@ -108,10 +129,10 @@ void MainGameScreen::render(sf::RenderWindow &window)
     window.draw(player->playerSprite());
     
     for(auto & alien : aliens)
-    {
+    {               
         window.draw(alien -> alienSprite());
     }
-    
+  
     window.display();
 }
 

@@ -24,4 +24,8 @@ void Circle::move(float x, float y)
 {
     x_center = x;
     y_center = y;
+    
+//    std::cout << x_center << std::endl;
+//    std::cout << y_center << std::endl;
+    
 }

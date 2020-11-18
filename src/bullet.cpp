@@ -3,11 +3,11 @@
 
 #include <iostream>
 
-Bullet::Bullet(float x_position, float y_position):bounding_region{0.5, x_position, y_position}, bullet_position{x_position, y_position}
+Bullet::Bullet(float x_position, float y_position):bounding_region{BULLET_SPRITE_WIDTH/2, x_position + BULLET_SPRITE_WIDTH/2, y_position + BULLET_SPRITE_HEIGHT/2}, bullet_position{x_position, y_position}
 {   
     x_pos = x_position;
     y_pos = y_position;
-    bullet_texture.loadFromFile("resources/laser.png");
+    bullet_texture.loadFromFile("resources/images/laser.png");
     bullet_sprite.setTexture(bullet_texture);
     bullet_sprite.setPosition(x_pos, y_pos);
     fired = false;
@@ -28,6 +28,7 @@ void  Bullet::deactivate()
 void Bullet::reset(float x_pos, float y_pos)
 {
     setPosition(x_pos, y_pos);
+    bounding_region.move(x_pos + BULLET_SPRITE_WIDTH/2 , y_pos + BULLET_SPRITE_HEIGHT/2); // added this not long ago
 }
 
 bool Bullet::isFired() const 

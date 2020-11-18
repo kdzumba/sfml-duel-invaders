@@ -27,7 +27,6 @@ private:
     bool fired;
     Circle bounding_region;
     Position bullet_position;
-    //MainGameScreen game;
     sf::Texture bullet_texture;
     sf::Sprite bullet_sprite;
 };
